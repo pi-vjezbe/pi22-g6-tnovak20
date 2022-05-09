@@ -136,7 +136,6 @@
 			this.label6.Size = new System.Drawing.Size(50, 16);
 			this.label6.TabIndex = 9;
 			this.label6.Text = "Bodovi";
-			this.label6.Click += new System.EventHandler(this.label6_Click);
 			// 
 			// txtTeacher
 			// 
@@ -178,6 +177,7 @@
 			this.btnCancel.TabIndex = 14;
 			this.btnCancel.Text = "Odustani";
 			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// FrmEvaluation
 			// 
@@ -200,7 +200,7 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FrmEvaluation";
 			this.Text = "FrmEvaluation";
 			((System.ComponentModel.ISupportInitialize)(this.numPoints)).EndInit();

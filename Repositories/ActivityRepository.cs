@@ -42,11 +42,11 @@ namespace Evaluation_Manager.Repositories
 			return activities;
 		}
 		private static Activity CreateObject(SqlDataReader reader)
-				{
-					int id = int.Parse(reader["Id"].ToString());
-					string name = reader["Name"].ToString();
-					string description = reader["Description"].ToString();
-				int maxPoints = int.Parse(reader["MaxPoints"].ToString());
+		{
+			int id = int.Parse(reader["Id"].ToString());
+			string name = reader["Name"].ToString();
+			string description = reader["Description"].ToString();
+			int maxPoints = int.Parse(reader["MaxPoints"].ToString());
 			int minPointsForGrade = int.Parse(reader["MinPointsForGrade"].ToString());
 			int minPointsForSignature = int.Parse(reader["MinPointsForSignature"].ToString());
 			Activity activity = new Activity

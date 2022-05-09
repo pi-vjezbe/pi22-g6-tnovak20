@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Evaluation_Manager.Models;
+using Evaluation_Manager.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +14,15 @@ namespace Evaluation_Manager
 {
 	public partial class FrmEvaluation : Form
 	{
-		public FrmEvaluation()
+		private Student student;
+		public FrmEvaluation(Student selectedStudent)
 		{
 			InitializeComponent();
+			student = selectedStudent;
 		}
-
-		private void label6_Click(object sender, EventArgs e)
+		private void btnCancel_Click(object sender, EventArgs e)
 		{
-
+			Close();
 		}
 	}
 }
