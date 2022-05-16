@@ -35,14 +35,14 @@ namespace Evaluation_Manager
             dgvStudents.Columns["Grade"].DisplayIndex = 3;
         }
 
-		private void btnEvaluateStudent_Click(object sender, EventArgs e)
-		{
+        private void btnEvaluateStudent_Click(object sender, EventArgs e)
+        {
             Student selectedStudent = dgvStudents.CurrentRow.DataBoundItem as Student;
             if (selectedStudent != null)
-			{
+            {
                 FrmEvaluation frmEvaluation = new FrmEvaluation(selectedStudent);
                 frmEvaluation.ShowDialog();
-			}
-		}
-	}
+            }
+        }
+    }
 }
