@@ -15,7 +15,7 @@ namespace Evaluation_Manager.Repositories
         {
             Evaluation evaluation = null;
             string sql = $"SELECT * FROM Evaluations WHERE IdStudents = {student.Id} AND IdActivities = { activity.Id}";
-    DB.OpenConnection();
+            DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             if (reader.HasRows)
             {
@@ -27,6 +27,7 @@ namespace Evaluation_Manager.Repositories
             DB.CloseConnection();
             return evaluation;
         }
+
         public static List<Evaluation> GetEvaluations(Student student)
         {
             List<Evaluation> evaluations = new List<Evaluation>();
@@ -46,6 +47,7 @@ namespace Evaluation_Manager.Repositories
 
             return evaluations;
         }
+
         private static Evaluation CreateObject(SqlDataReader reader)
         {
             int idActivities = int.Parse(reader["IdActivities"].ToString());
@@ -72,14 +74,6 @@ namespace Evaluation_Manager.Repositories
 
             return evaluation;
         }
-        public static void UpdateEvaluation(Evaluation evaluation, Teacher teacher, int points)
-        {
-            string sql = $"UPDATE Evaluations SET IdTeachers = {teacher.Id}, Points = { points}, EvaluationDate = GetDate() WHERE IdActivities = {evaluation.Activity.Id} AND IdStudents = { evaluation.Student.Id }";
-
-            DB.OpenConnection();
-            DB.ExecuteCommand(sql);
-            DB.CloseConnection();
-        }
 
         public static void InsertEvaluation(Student student, Activity activity, Teacher teacher, int points)
         {
@@ -89,6 +83,13 @@ namespace Evaluation_Manager.Repositories
             DB.CloseConnection();
         }
 
-    }
+        public static void UpdateEvaluation(Evaluation evaluation, Teacher teacher, int points)
+        {
+            string sql = $"UPDATE Evaluations SET IdTeachers = {teacher.Id},  Points = { points}, EvaluationDate = GETDATE() WHERE IdActivities = {evaluation.Activity.Id} AND IdStudents = { evaluation.Student.Id }";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
 
+    }
 }
